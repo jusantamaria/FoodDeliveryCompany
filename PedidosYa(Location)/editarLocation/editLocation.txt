@@ -1,0 +1,126 @@
+PedidosYa | Location | Edit Location
+
+Descripción
+COMO Usuario Web de PedidosYa
+
+QUIERO Editar mis direcciones agregadas
+
+PARA Actualizar o corregir mis direcciones
+
+URL/Endpoint: https://www.pedidosya.com.ar/addresses
+
+✅ACCEPTANCE CRITERIA
+
+Feature: Editar direcciones
+
+  Background:
+    Given El usuario esta logeado en PedidosYa
+    And Se encuentra en el endpoint "/addresses"
+    And Tiene al menos una dirección agregada
+    And Tiene la opción de Editar activada
+    And Hace click sobre la dirección a editar
+    
+  Scenario 1: Editar dirección (Happy Path)
+    Given El usuario ingresa una dirección y el número de teléfono valido
+    When Hace click en el botón Guardar dirección
+    Then Se muestra mensaje "Dirección modificada correctamente"
+    
+  Scenario 2: Editar dirección ingresando menos de 7 números en el campo numero de teléfono (Negativo) 
+    Given El usuario ingresa una dirección valida
+    And ingresa número de telefono menor a 7 números en el campo del número de teléfono
+    When El usuario hace click en el botón Guardar dirección
+    Then Se muestra mensaje "Tenés que ingresar al menos 7 números." debajo del campo del numero de teléfono
+
+  Scenario 3: Editar dirección ingresando más de 15 números en el campo número de teléfono (Negativo)
+      Given El usuario ingresa una dirección correcta
+      And ingresa más de 15 números en el campo número de teléfono
+      When El usuario hace click en el botón Guardar Dirección
+      Then Se muestra mensaje "Máximo 15 números." debajo del campo del Numero de teléfono.
+
+
+
+⛳SCOPE
+
+
+Toggle Editar
+
+Direcciones agregadas
+
+🏴‍☠️OOS
+
+
+Otras Paginas
+
+
+
+🚩BUSINESS RULES SPEC
+
+Campos obligatorios:*
+Dirección:* 
+
+Este campo permite números, Strings y caracteres especiales (Las direcciones se muestran con números y Strings)
+
+Al ingresar 5 caracteres (Strings y/o números) válidos, se debe mostrar una lista con direcciones relacionadas con los caracteres ingresados previamente.
+
+IF
+
+Hace click en una de las direcciones de la lista se debe de mostrar pantalla: ¿Nos confirmas tu ubicación? Con el Google Maps.
+
+IF
+
+Hace click en el botón “Confirmar” se agrega la dirección en el campo “Dirección”
+
+ElSE
+
+Si se hace click en el botón de regreso, muestra la pantalla: “Ingresa tu dirección”
+
+Número Celular:*
+
+Este campo solo permite números (No permite letras ni caracteres especiales !@#$%^*<:;')
+
+Se debe de ingresar un mínimo de 7 números y un máximo 15 números:
+
+IF 
+
+Se ingresa menos de 7 números al hacer click en el botón “Guardar dirección” Se debe mostrar mensaje: “Tenés que ingresar al menos 7 números.”
+
+ELSE IF
+
+Se ingresa más de 15 números al hacer click en el botón “Guardar dirección” Se debe mostrar mensaje: “Máximo 15 números.”
+
+ELSE
+
+Sí se ingresa un número en un rango de 7 números como mínimo y un máximo 15 al hacer click en el botón “Guardar dirección”. Se muestra mensaje "Dirección modificada correctamente"
+
+Campos opcionales:
+Piso/Departamento:
+
+Este campo permite cualquier tipo de carácter.
+
+Nota: Este campo no tiene un límite máximo de caracteres.
+
+Indicaciones para la entrega
+
+Este campo permite cualquier tipo de carácter.
+
+Tiene límite de 100 caracteres
+
+IF
+
+El campo contiene 100 caracteres, el sistema no permite ingresar más caracteres.
+
+Opciones de la sección: ¿Qué nombre le damos a esta dirección?
+
+Casa
+
+Trabajo
+
+Otro:
+
+Al hacer click sobre la opción “Otro” se muestra un campo para ingresar el nombre de la dirección personalizada.
+
+El campo contiene un máximo de 20 caracteres
+
+IF
+
+El campo contiene 20 caracteres, el sistema no permite ingresar más caracteres.

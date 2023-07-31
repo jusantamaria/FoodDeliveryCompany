@@ -1,0 +1,71 @@
+US PedidosYa | SLP | Visualizar Contenido de la Card de una tienda.
+
+
+
+Descripción
+COMO usuario WEB de PedidosYa.
+
+QUIERO Acceder al contenido de una tienda. 
+
+PARA Consultar los productos y/o servicios de la tienda. 
+
+
+✅ACCEPTANCE CRITERIA
+
+
+
+Feature: Visualizar Contenido de la Card de una tienda.
+
+Background:
+Given: Usuario se encuentra Logueado.   
+  And:Tiene al menos una dirección agregada.
+  And:Al menos tiene elegido una Categoría de Tiendas.
+
+Scenario 1: Usuario Visualiza Contenido de la Card.
+  When: Usuario hace click en la Card de una Tienda 
+  Then: El usuario es redirigido a la página principal de la tienda, donde visualiza: 
+         *Nombre de la Tienda.
+         *Tipos de Pago.
+         *Descuentos o No. 
+         *Tiempo de entrega.
+         *Envio gratis o Pagado.
+         *Calificación de la Tienda.
+  And:Los datos del Encabezado de la página de la tienda, tienen que coincidir con los datos de la Card Visualizada y seleccionada anteriormente.
+
+
+
+
+
+SCOPE
+
+
+Desarrollar la Feature solamente en el encabezado de la Pagina de Tienda seleccionada. 
+
+NOTA: Revisar los MOCKUP.
+
+🏴‍☠️OOS
+
+
+No desarrollar la Feature que esta Posterior al  Encaezado.
+
+Existe la opción de visualizar el listado de las tiendas y el contenido de las Cards SIN estar registrado o logueado.
+
+
+🚩BUSINESS RULES SPEC
+
+Sobre la empresa
+PedidosYa es una empresa de tecnología líder en Q-Commerce y delivery en toda Latinoamérica. Una plataforma digital simple, práctica y sin costo adicional que permite a los usuarios elegir su plato o productos favoritos dentro de miles de opciones disponibles y realizar su pedido a través del sitio web o las aplicaciones para iPhone y Android.
+
+Sobre el SUT. URL y Endpoint
+LINK al SUT: Delivery de Comida Online - Elegí, Pedí y Ya | PedidosYa
+
+Sobre la funcionalidad a testear: Visualizar Contenido de la Card de una tienda.
+El Usuario debe tener registrado al menos una dirección para poder visualizar las tiendas y el contenido de las mismas. 
+
+Una vez el usuario esté logueado y registrado una dirección, la página lo redirige a las categorías, donde estára seleccionada una categoría por Default. 
+
+El usuario podrá seleccioanar otra categoría de su preferencia y se le mostrara el listado de la misma.
+
+Podrá visualizar el contenido de alguna Card de su preferencia, dando click en la misma y observara los servicios que ofrece, 
+
+Existe la opción de visualizar el listado de las tiendas y el contenido de las Cards SIN estar registrado o logueado, pero ESTA OPCIÓN ESTÁ OOS PARA ESTA US.

@@ -1,0 +1,85 @@
+PedidosYa | Location | Delete Location
+
+Descripción
+COMO usuario WEB de PedidosYa
+
+QUIERO eliminar una dirección agregada a mi perfil
+
+PARA descartar las ubicaciones que no corresponden
+
+✅ACCEPTANCE CRITERIA
+
+Feature:  eliminar dirección del perfil de usuario
+
+Background:
+Given   usuario está logueado en la página de PedidosYa
+  And   se encuentra en "Mis direcciones"
+  And   ha previamente agregado 1 o más direcciones
+  
+Scenario 1: usuario borra una dirección de su perfil 
+  When usuario activa el botón toggle "Editar" (mockup)
+  And  hace click en el ícono "trash" ubicado a la izquierda de una dirección agregada
+  And  hace click en el botón "Sí, continuar" del modal con mensaje de confirmación de eliminación cómo:
+      "¿Seguro que quiere eliminar esta dirección?"
+  Then  la dirección deja de ser visualizada en "Mis direcciones"
+  And   aparece Mensaje de Éxito como: 
+        "La dirección se ha eliminado correctamente"
+        
+Scenario 2: usuario se arrepiente de borra una dirección de su perfil 
+  When usuario activa el botón toggle "Editar"
+  And  hace click en el ícono "trash" ubicado a la izquierda de una dirección agregada
+  And  hace click en el botón "Cancelar" del modal con mensaje de confirmación de eliminación cómo:
+      "¿Seguro que quiere eliminar esta dirección?"
+  Then  el modal de confirmación desaparece 
+  And   la dirección permanece en "Mis direcciones"
+
+
+⛳SCOPE
+
+
+Testear la funcionalidad de eliminar dirección, en la sección “mis direcciones” del perfil de usuario WEB.
+
+Sólo se puede acceder al perfil de usuario estando logueado.
+
+Botón toggle “Editar”
+
+🏴‍☠️OOS
+
+
+Eliminar dirección sin tener cuenta o sin estar logueado.
+
+Login 
+
+
+🚩BUSINESS RULES SPEC
+
+Sobre la empresa
+PedidosYa es una empresa líder en Q-Commerce y delivery en toda Latinoamérica. Permite a los usuarios elegir su plato o productos favoritos dentro de miles de opciones disponibles (cercanas a la ubicación del usuario) y realizar su pedido a través del sitio web o las aplicaciones para iPhone y Android.
+
+Sobre el SUT. URL y Endpoint
+LINK al SUT: https://www.pedidosya.com/
+
+Endpoint para gestionar (agregar. editar y eliminar) las direcciones: https://www.pedidosya.com.ar/addresses
+
+Sobre la funcionalidad a testear: Eliminar dirección
+Agregando su ubicación, el usuario puede ver las opciones más cercanas a su domicilio.
+
+La dirección es fundamental para que se pueda concretar el delivery de la compra.
+
+Se puede agregar, editar o eliminar direcciones desde la sección “Mis direcciones” en el perfil de usuario.
+
+También se puede acceder a “Mis direcciones” ingresando primero a “Mi cuenta” > “Direcciones”
+
+Se pueden agregar varias direcciones asociadas al perfil de un usuario determinado (casa, trabajo, etc)
+
+Las direcciones ingresadas pueden ser editadas o eliminadas.
+
+Las direcciones sólo pueden ser eliminadas una por una (no se pueden eliminar todas juntas).
+
+Para agregar, editar o eliminar direcciones es necesario estar logueado.
+
+Para editar o eliminar direcciones es necesario activar el botón toggle “editar” (en la parte superior derecha de la sección “Mis direcciones”). Al activar el botón toggle “editar” aparecerá un ícono “trash” (tachito de basura) junto a cada dirección agregada para poder eliminarlas.
+
+Existe la opción de agregar y editar direcciones SIN estar registrado o logueado. En este caso, una vez ingresada la dirección, se puede editar, pero no se puede eliminar. ESTA OPCIÓN ESTÁ OOS PARA ESTA US
+
+Si bien esta funcionalidad se encuentra presente en el sitio web y en las aplicaciones para iPhone y Android. EL TESTEO EN APP MOBILE ESTÁ OOS PARA ESTA US.
