@@ -1,0 +1,69 @@
+PedidosYa | SPLP | Search Bar inside Store
+
+
+
+Descripción
+Como usuario web
+
+Quiero buscar productos deseados de una tienda por medio de la barra de búsqueda
+
+Para encontrar los productos más fácilmente
+
+✅ACCEPTANCE CRITERIA
+
+Feature: Search Bar en la PLP
+
+  Background:
+    Given El usuario ha definido una dirección
+    And El usuario se encuentra ubicado en la SPLP (Shop Products List Page) de una tienda (restaurantes, farmacias, tiendas. etc.)
+  
+  Scenario 1 (Happy path) Búsqueda de categoría
+    When el usuario inserta en el "Search Bar" una palabra (o parte de ella) que coinide con una categoría 
+    Then se despliegan los productos pertenecientes a esa categoría
+  
+  Scenario 2 (Happy path) Búsqueda de producto
+    When el usuario inserta en el "Search Bar" una palabra (o parte de ella) que coincide con el título del producto 
+    Then se despliegan los productos pertenecientes a esa categoría
+  
+  Scenario 3 (Resultado negativo)
+    When el usuario inserta valores que no coinciden exactamente con los títulos
+    Then se despliega un mensaje informando que no hay resultados para la búsqueda
+  
+  Scenario 4 (Restablecer el listado de productos de la tienda)
+    Given el usuario ha realizado una búsqueda
+    And tiene el menú clasificado de acuerdo a la búsqueda
+    When el usuario borra caracteres de la palabra buscada hasta llegar a menos de tres 
+    Or el usuario presiona la "x" 
+    Or el usuario presiona "Cancelar"
+    Then se reestablece la lista de productos de la tienda mostrada antes de iniciar la búsqueda.
+
+
+⛳SCOPE
+
+
+Search Bar dentro de la tienda seleccionada. Evaluar la funcionalidad  desde que se ingresa a la SPLP hasta que despliega el resultado.
+
+🏴‍☠️OOS
+
+
+Está fuera de Scope Seleccionar los productos mostrados.
+
+Agregar pedidos
+
+Filtrar por categoría
+
+Cualquier otra funcionalidad fuera de la barra de búsqueda de la SPLP
+
+🚩BUSINESS RULES SPEC
+
+BR1:  El Search Bar de la PLP es un botón de “Instant Search”, no se requiere dar click para realizar la búsqueda.  A partir de que el usuario introduce 3 caracteres, se empiezan a desplegar los resultados y se van modificando conforme el usuario continúa escribiendo.
+
+BR2: La coincidencia de lo escrito en el "Search Bar" es exacta al nombre del producto o al de la categoría o la porción del mismo que se haya ingresado. Ni las mayúsculas, ni la ubicación de la coincidencia en el nombre son relevantes.  Las variaciones de una palabra por ejemplo el plural no va a ser reconocido como coincidencia al no ser exacto. Por ejemplo si la búsqueda es “hamburguesas” y el título contiene “hamburguesa” el resultado es que no hay coincidencia. 
+
+BR3: La búsqueda de la coincidencia solo se realiza en el nombre de la categoría y en el nombre del producto. No se buscan coincidencias en la descripción del producto, ni en ningún otro lugar.
+
+BR4: Debe mostrarse un mensaje de advertencia en color amarillo , cuando no se encuentran coincidencias. El mensaje debe decir: “No encontramos {término} en el menú” (Ver el mockup). 
+
+BR5: El botón cancelar y el botón “X”  limpian el "Search Bar"
+
+BR6: La lista de productos de la tienda se reestablece conforme se van borrando los caracteres ingresados en el search bar hasta llegar a menos de 3 caracteres, ,momento en el que se despliega de nuevo la lista original. (Con 0, 1 o 2 caracteres en la búsqueda.)

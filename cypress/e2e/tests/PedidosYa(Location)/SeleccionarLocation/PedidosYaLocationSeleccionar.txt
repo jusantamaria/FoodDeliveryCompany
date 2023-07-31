@@ -1,0 +1,44 @@
+PedidosYa | Location | Seleccionar dirección de envío
+
+Descripción
+COMO usuario web
+
+QUIERO seleccionar entre mis direcciones de envío
+
+PARA lograr que mi pedido llegue a la dirección elegida
+
+✅ACCEPTANCE CRITERIA
+
+Feature: seleccionar dirección de envío
+
+  Background:
+    Given usuario inició sesión
+    And está situado en la pagina "addresses" de pedidosYa
+    And tener cargada al menos una dirección 
+       
+  Scenario1 usuario seleciona exitosamente su direccion de envio
+    When hace click sobre el area clikable del boton de dirección deseado
+    Then se redirecciona a la SLP 
+    And aparecera la direccion selecionada en medio del header
+
+⛳SCOPE
+
+
+QA deberá validar la selección de direcciones en la Página PedidosYa / addresses
+
+🏴‍☠️OOS
+
+
+Validar el login
+
+Carga de dirección
+
+Seleccionar dirección desde SLP
+
+🚩BUSINESS RULES SPEC
+
+En la página /addresses el usuario podrá gestionar sus direcciones (agregar, editar, borrar, seleccionar)
+
+Al agregar una dirección se creará un botón (botón de dirección) donde se reflejará el nombre del botón y la dirección como tal.
+
+Dicho botón constara de un área clikable y un área no-clikable.

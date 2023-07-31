@@ -1,0 +1,172 @@
+US de pedidos YA: PedidosYa | SLP | Filter by Category
+
+
+
+✅ACCEPTANCE CRITERIA
+
+
+
+FEATURE: El usuario puede filtrar por tipo de tienda o por tipo de producto (Panel Izquierdo /Panel Derecho)
+
+Background:
+  GIVEN el usuario se debe encontrarse en el homepage del website
+  AND debe loguearse exitosamente
+  AND debe ingresar una direccion valida
+
+Scenario: Filtrar lugares segun el tipo de local
+  WHEN el usuario debe debe hacer clic en un tipo de local(sobre la imagen o titulo)
+  THEN se actualiza el sitio web
+  AND se visualizan la cantidad de locales del tipo seleccionado
+  AND se visualiza el PLP de Locales
+  AND se visualizan en order en base al tiempo de demora.
+
+Scenario: Filtrar lugares por tipo de categoria
+  WHEN el usuario debe seleccionar un tipo de categoria
+  THEN se actualiza el sitio web
+  AND se visualizan la cantidad de  locales  que venden el tipo de producto seleccionado exitosamente
+  AND se visualiza el PLP de Locales
+  AND se visualizan en order en base al tiempo de demora.
+
+Scenario: Filtrar lugares a travez del boton "ver mas"
+  WHEN el usuario debe acceder a travez del boton "ver mas"
+  AND debe abrirse una ventana pop-up con las distintas categorias
+  AND hace clic sobre un tipo de categoria
+  THEN se actualiza el sitio web
+  AND se visualizan la cantidad de locales del tipo seleccionado
+  AND se visualiza el PLP de Locales
+  AND se visualizan en order en base al tiempo de demora.
+  
+Scenario: Filtrar lugares combinando filtros por tipo de local y ¨Categorias¨
+  WHEN el usuario debe debe hacer clic en un tipo de local(sobre la imagen o titulo)
+  AND debe desplegar el drop down ¨Categorias¨
+  AND debe seleccionar un tipo de ¨Categoria¨
+  THEN se actualiza el sitio web
+  AND se visualizan la cantidad de locales del tipos seleccionados
+  AND se visualiza el PLP de Locales
+  AND se visualizan en order en base al tiempo de demora.
+  BUT si no existen locales con dicha combinacion mostrara un mensaje amigable
+
+
+
+
+
+
+
+SCOPE
+
+
+El QA deberá validar que el usuario pueda filtrar los lugares de acuerdo a dos tipos de categorización:
+
+“Categoría” - Panel derecho
+
+Categoría - ICONOS - Panel izquierdo
+
+🏴‍☠️OOS
+
+
+No se validan los siguientes drop down: 
+
+“Medio de pago”
+
+“Ordenar”
+
+“Promociones”
+
+“Filtros” 
+
+
+
+
+
+
+Descripción
+AS Website Website User OrderYa 
+
+I want to visualize the different types of category  
+
+TO filter the products by the chosen category
+
+
+
+
+
+
+🚩BUSINESS RULES SPEC
+
+Categoría (drop down)- PANEL DERECHO:
+
+BR1: Debe mostrarse 15 categorías ordenas alfabéticamente al desplegarse, y al ocultarse no debería mostrar ninguna categoría
+
+Arepas\Bebidas\Cafetería\Calzones\Carnes\Celíacos\Lomitos\Comida Árabe\Comida Armenia\Comida China\Comida India\Comida Japonesa\Comida Mexicana\Comida Peruana\Comida Vegetariana\Ver más..."
+
+BR2: Debe mostrarse el botón “ver mas”, al final del drop down.
+
+Botón “ver mas” - PANEL DERECHO: 
+
+BR3: Debe abrirse un pop-up, con 33 categorías, ordenadas alfabéticamente.
+
+El sistema debe prever en el caso de agregar nuevos tipos de categorizacion.
+
+BR4: Cada categoría tiene una imagen única que lo diferencia relacionado al tipo de categoría.
+
+Botón “Tipo de local”- PANEL IZQUIERDO:
+
+BR5: Cada categoría tiene una imagen única que lo diferencia relacionado al tipo de categoría.
+
+El sistema debe mostrar los siguientes locales o lugares:
+
+Restaurantes
+
+Mercados
+
+Bebidas
+
+Kioscos
+
+Café & Deli
+
+Tiendas
+
+Mascotas
+
+BR6: Si el usuario selecciona un tipo de categoría
+
+El sistema debe mostrar el PLP de lugares correspondiente al tipo de categoría, especificando por cada lugar:
+
+ el nombre del local,
+
+entrega /No entrega,
+
+acepta pago online o no,
+
+tiempo de demora,
+
+tipo de envió
+
+El sistema debe mostrar la categoría seleccionada resaltada con un Circulo.
+
+BR7: Si el usuario selecciona un tipo de categoría de Tipo local o “*Categoría*” o desde “*ver mas*”
+
+El sistema debe mostrar el PLP de lugares correspondiente al tipo de categoría, detallando por cada lugar:
+
+el nombre del local,
+
+entrega /No entrega,
+
+acepta pago online o no,
+
+tiempo de demora,
+
+tipo de envió
+
+si el local se encuentra abierto o cerrado
+
+El sistema debe mostrar separados los locales abiertos (en primer lugar), de los locales Cerrados.
+
+El sistema debe mostrar los locales cerrados indicando el horario de apertura. y ordenados por horario de apertura del más reciente a abrir ,al último en abrir.
+
+El sistema debe mostrar los locales abiertos ordenados por tiempo de demora  de la entrega de sus productos, del  que menos demora al que mas demora  tiene.
+
+BR8: El usuario  al ingresar al PLP por primera vez
+
+El sistema por defecto mostrara seleccionada la categoría tipo de local ¨Restaurantes¨
